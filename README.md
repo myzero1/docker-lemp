@@ -26,9 +26,9 @@ Setting
     ```
     cd env
     cp conf.dist conf
-    * you can edit the COMPOSE_PROJECT_NAME,if you want more env
     ```
 
+* you can edit the COMPOSE_PROJECT_NAME,if you want more env
 
 Usage
 -----
