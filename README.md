@@ -21,33 +21,13 @@ Setting
     cp .env.dist .env
     ```
 
-- Go to env dir and copy docker-compose.yml.dist to docker-compose.yml
+- Go to env dir and copy conf.dist to conf
 
     ```
     cd env
-    cp docker-compose.yml.dist docker-compose.yml
+    cp conf.dist conf
     ```
 
-- Go to env/docker/nginx dir and cp vhost.conf.dist to vhost.conf
-
-    ```
-    cd  env/docker/nginx
-    cp  vhost.conf.dist vhost.conf
-    ```
-    
-- Go to env/docker/mysql dir and cp my.cnf.dist to my.cnf
-
-    ```
-    cd  env/docker/mysql
-    cp  my.cnf.dist my.cnf
-    ```
-
-- Go to env/docker/php dir and cp php.ini.dist to php.ini
-
-    ```
-    cd  env/docker/php
-    cp  php.ini.dist php.ini
-    ```
 
 
 Usage
