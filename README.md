@@ -87,5 +87,5 @@ OR run in backend
       ```
       or
       ```
-      docker-compose up
+      docker-compose up -d
       ```
