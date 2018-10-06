@@ -22,7 +22,7 @@ services:
       - ./db/mysql/conf.d:/etc/mysql/conf.d
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=fecshopxfd3ffaads123456
+      - MYSQL_ROOT_PASSWORD=myzero1To735
       - MYSQL_DATABASE=fecshop
     networks:
       - code-network
@@ -33,40 +33,9 @@ services:
       - ./app:/www/web
       - ./services/php/etc/php7.1.13.ini:/usr/local/etc/php/conf.d/php7.1.13.ini
     depends_on:
-      - mongodb
       - mysql
     networks:
         - code-network
-  mongodb:
-    image: mongo:latest
-    restart: always
-    environment:
-      - MONGO_DATA_DIR=/data/db
-      - MONGO_LOG_DIR=/data/logs
-    volumes:
-      - ./db/mongodb/data:/data/db
-      - ./db/mongodb/example_db:/data/example_db
-      - ./db/mongodb/logs:/data/logs
-    networks:
-      - code-network
-  redis:
-    image: redis
-    restart: always
-    environment:
-        REDIS_PASS_FILE: /run/secrets/redis-password
-    command: [
-      "bash", "-c",
-      '
-       docker-entrypoint.sh
-       --requirepass "$$(cat $$REDIS_PASS_FILE)"
-      '
-    ]
-    volumes:
-      - ./db/redis/etc/redis.conf:/usr/local/etc/redis/redis.conf
-      - ./db/redis/data:/data
-      - ./db/redis/etc/redis-password:/run/secrets/redis-password
-    networks:
-      - code-network
 networks:
   code-network:
     driver: bridge
