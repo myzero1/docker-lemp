@@ -11,39 +11,29 @@ Clone from [myzero1/docke-lemp](https://github.com/myzero1/docker-lemp)
   git clone https://github.com/myzero1/docker-lemp.git
   ```
 
-Setting
+Setting by modify the docker-comose.yml
 -----
 
-- Go to env dir and copy .env.dist to .env
+- Seting the password of mysql
 
     ```
-    cd env
-    cp .env.dist .env
+    - MYSQL_ROOT_PASSWORD=myzero1To123456
     ```
-
-- Go to env dir and copy conf.dist to conf
-
-    ```
-    cd env
-    cp conf.dist conf
-    ```
-
-* you can edit the COMPOSE_PROJECT_NAME,if you want more env
 
 Usage
 -----
 
-- Go to env dir
+- Start docker
     ```
-    cd env
+    service docker start
     ```
 
-- Build env by docker-comose as following：
+- Build by docker-comose as following：
     ```
     docker-compose build
     ```
 
-- Up env by docker-comose as following：
+- Up by docker-comose as following：
     ```
     docker-compose up
     ```
@@ -52,11 +42,23 @@ OR run in backend
     docker-compose up -d
     ```
 
+- Select containers
+    ```
+    docker-compose ps
+    ```
+
 - Log into the app container
     ```
-    docker-compose exec app bash
-    
-    docker exec -it env_app_1 bash   on docker for windows
+    docker-compose exec php bash
+
+    docker exec -it docker-lemp_php_1 bash   on docker for windows
+    ```
+
+- Using composer in php container
+    ```
+    docker-compose exec php bash
+
+    composer -v
     ```
 
 - Get the docker host IP address
