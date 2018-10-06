@@ -17,9 +17,9 @@ services:
     image: mysql:5.7
     restart: always
     volumes:
-      - ./db/mysql/data:/var/lib/mysql
-      - ./db/mysql/example_db:/var/example_db
-      - ./db/mysql/conf.d:/etc/mysql/conf.d
+      - /var/docker-lemp/db/mysql/data:/var/lib/mysql
+      - /var/docker-lemp/db/mysql/example_db:/var/example_db
+      - /var/docker-lemp/db/mysql/conf.d:/etc/mysql/conf.d
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=fecshopxfd3ffaads123456
@@ -44,9 +44,9 @@ services:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/data/logs
     volumes:
-      - ./db/mongodb/data:/data/db
-      - ./db/mongodb/example_db:/data/example_db
-      - ./db/mongodb/logs:/data/logs
+      - /var/docker-lemp/db/mongodb/data:/data/db
+      - /var/docker-lemp/db/mongodb/example_db:/data/example_db
+      - /var/docker-lemp/db/mongodb/logs:/data/logs
     networks:
       - code-network
   redis:
@@ -62,9 +62,9 @@ services:
       '
     ]
     volumes:
-      - ./db/redis/etc/redis.conf:/usr/local/etc/redis/redis.conf
-      - ./db/redis/data:/data
-      - ./db/redis/etc/redis-password:/run/secrets/redis-password
+      - /var/docker-lemp/db/redis/etc/redis.conf:/usr/local/etc/redis/redis.conf
+      - /var/docker-lemp/db/redis/data:/data
+      - /var/docker-lemp/db/redis/etc/redis-password:/run/secrets/redis-password
     networks:
       - code-network
 networks:
